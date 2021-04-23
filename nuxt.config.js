@@ -44,15 +44,16 @@ export default {
   build: {
   },
   axios: {
-    baseURL: 'https://60822af2827b350017cfbcc3.mockapi.io',
+    baseURL: process.env.API_BASE_URL,
     common: {
       Accept: 'text/plain, */*'
     },
+    // proxyHeaders: false,
     credentials: false,
     proxy: true,
   },
 
   proxy: {
-    '/api': { target: 'https://60822af2827b350017cfbcc3.mockapi.io', pathRewrite: {'^/api': ''} }
+    '/api': { target: process.env.API_BASE_URL, pathRewrite: {'^/api': ''} }
   },
 }
